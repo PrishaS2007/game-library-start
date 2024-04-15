@@ -40,7 +40,36 @@ window.addEventListener("load", draw);
 
 function draw() {
   // LOGIC
+  // Move Player 1
+  if (keyPressed["ArrowLeft"]) {
+    player1.x += -5;
+  } else if (keyPressed["ArrowRight"]) {
+    player1.x += 5;
+  } else if (keyPressed["ArrowUp"]) {
+    player1.y += -5;
+  } else if (keyPressed["ArrowDown"]) {
+    player1.y += 5;
+  }
+  player1.x = constrain(player1.x, 0, cnv.width - player1.w);
+  player1.y = constrain(player1.y, 0, cnv.height - player1.h);
 
+  // Move Player 1
+  if (keyPressed["KeyA"]) {
+    player2.x += -5;
+  } else if (keyPressed["KeyD"]) {
+    player2.x += 5;
+  } else if (keyPressed["KeyW"]) {
+    player2.y += -5;
+  } else if (keyPressed["KeyS"]) {
+    player2.y += 5;
+  }
+
+  // Check if Mouse is in Block
+  if (ptInCircle(mouseX, mouseY, ball)) {
+    document.body.style.backgroundColor = "lightgrey";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
   // DRAWING
   drawFrame();
 
@@ -69,4 +98,9 @@ function drawFrame() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
   ctx.fill();
+
+  // Draw Mouse Coordintes
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 }
