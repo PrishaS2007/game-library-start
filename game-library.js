@@ -85,7 +85,13 @@ function ptInRect(x, y, rect) {
  * param: circle (circle object with x, y and r properties)
  * return: true or false
  */
-function ptInCircle(x, y, circle) {}
+function ptInCircle(x, y, circle) {
+  if (y < circle < x) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
  * rectCollide(rect1, rect2)
