@@ -65,7 +65,7 @@ function draw() {
   }
 
   // Check if Mouse is in Block
-  if (ptInCircle(mouseX, mouseY, ball)) {
+  if (ptInRect(mouseX, mouseY, ball)) {
     document.body.style.backgroundColor = "lightgrey";
   } else {
     document.body.style.backgroundColor = "white";

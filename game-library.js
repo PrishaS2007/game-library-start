@@ -39,7 +39,9 @@ function keyupLibHandler(e) {
  * param: y2 (y-coordinate of second point)
  * return: distance between (x1, y1) and (x2, y2)
  */
-function dist(x1, y1, x2, y2) {}
+function dist(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
 
 /*
  * constrain(val, low, high)
@@ -67,7 +69,13 @@ function constrain(val, low, high) {
  * param: rect (rectangle object with x, y, w and h properties)
  * return: true or false
  */
-function ptInRect(x, y, rect) {}
+function ptInRect(x, y, rect) {
+  if (y < rect < x) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
  * ptInCircle(x, y, circle)
