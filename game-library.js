@@ -49,7 +49,15 @@ function dist(x1, y1, x2, y2) {}
  * param: high (maximum limit of range, inclusive)
  * return: the constrained value (provided value is not modified)
  */
-function constrain(val, low, high) {}
+function constrain(val, low, high) {
+  if (val < low) {
+    return low;
+  } else if (val > high) {
+    return high;
+  } else {
+    return val;
+  }
+}
 
 /*
  * ptInRect(x, y, rect)
