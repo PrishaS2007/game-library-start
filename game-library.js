@@ -70,11 +70,11 @@ function constrain(val, low, high) {
  * return: true or false
  */
 function ptInRect(x, y, rect) {
-  if (y < rect < x) {
-    return true;
-  } else {
-    return false;
-  }
+ if (((rect.x < x) && (x < (rect.x + rect.w))) && ((rect.y < y) && (y < (rect.y + rect.h)))) {
+  return true;
+ } else {
+  return false;
+ }
 }
 
 /*
@@ -86,7 +86,8 @@ function ptInRect(x, y, rect) {
  * return: true or false
  */
 function ptInCircle(x, y, circle) {
-  if (y < circle < x) {
+  var distPoint =  dist(x, y, circle.x, circle.y);
+  if (distPoint <  circle.r) {
     return true;
   } else {
     return false;
@@ -100,7 +101,13 @@ function ptInCircle(x, y, circle) {
  * param: rect2 (rectangle object with x, y, w and h properties)
  * return true or false
  */
-function rectCollide(rect1, rect2) {}
+function rectCollide(rect1, rect2) {
+  if ((rect1.x < (rect2.x + rect2.w)) && ((rect1.x + rect1.w) > rect2.x) && ((rect1.y + rect1.h) > rect2.y) && (rect1.y < (rect2.y + rect2.h))) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
  * circleCollide(circle1, circle2)
@@ -109,4 +116,11 @@ function rectCollide(rect1, rect2) {}
  * param: circle2 (circle object with x, y and r properties)
  * return true or false
  */
-function circleCollide(circle1, circle2) {}
+function circleCollide(circle1, circle2) {
+  var distPoint = dist(circle1.x, circle1.y, circle2.x, circle2.y)
+  if (distPoint < (circle1.r + circle2.r)) {
+    return true;
+  } else {
+    return false;
+  }
+}

@@ -65,11 +65,34 @@ function draw() {
   }
 
   // Check if Mouse is in Block
-  if (ptInRect(mouseX, mouseY, ball)) {
+  if (ptInRect(mouseX, mouseY, block)) {
     document.body.style.backgroundColor = "lightgrey";
   } else {
     document.body.style.backgroundColor = "white";
   }
+
+  // Check if mouse is in Circle
+  if (ptInCircle(mouseX, mouseY, ball)) {
+    document.body.style.backgroundColor = "lightgrey";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+
+  // Check if rectangles collide
+  if (rectCollide(player1, block)) {
+    document.body.style.backgroundColor = "lightgrey";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+
+  console.log(circleCollide(player2, ball))
+  // Check if circles collide
+  if (circleCollide(player2, ball)) {
+    document.body.style.backgroundColor = "lightgrey";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+
   // DRAWING
   drawFrame();
 
