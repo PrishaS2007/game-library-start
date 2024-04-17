@@ -85,7 +85,6 @@ function draw() {
     document.body.style.backgroundColor = "white";
   }
 
-  console.log(circleCollide(player2, ball))
   // Check if circles collide
   if (circleCollide(player2, ball)) {
     document.body.style.backgroundColor = "lightgrey";
