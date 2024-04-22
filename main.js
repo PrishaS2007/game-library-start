@@ -71,7 +71,7 @@ function draw() {
     document.body.style.backgroundColor = "white";
   }
 
-  // Check if mouse is in Circle
+  // // Check if mouse is in Circle
   if (ptInCircle(mouseX, mouseY, ball)) {
     document.body.style.backgroundColor = "lightgrey";
   } else {
